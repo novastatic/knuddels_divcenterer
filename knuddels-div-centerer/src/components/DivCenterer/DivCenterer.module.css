@@ -1,10 +1,17 @@
-.div-centerer .gallery {
+.div_centerer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.div_centerer .gallery {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.div-centerer .canvas {
+.div_centerer .canvas {
   position: relative;
   height: 500px;
   width: 500px;
@@ -12,12 +19,15 @@
   margin-bottom: 20px;
 }
 
-.div-centerer button {
+.div_centerer button {
   display: block;
   margin: 10px auto;
+  padding: 5px;
+  color: lightgoldenrodyellow;
+  background-color: purple;
 }
 
-.div-centerer .code {
+.div_centerer .code {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
   padding: 10px;

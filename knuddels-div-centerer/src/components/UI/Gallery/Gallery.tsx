@@ -1,5 +1,5 @@
 import React from "react";
-import "./Gallery.module.css";
+import styles from "./Gallery.module.css";
 
 interface GalleryProps {
   images: string[];
@@ -13,7 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({
   selectedImage,
 }) => {
   return (
-    <div className="gallery">
+    <div className={styles.gallery}>
       {images.map((image, index) => (
         <img
           key={index}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./DivCenterer.module.css";
+import styles from "./DivCenterer.module.css";
 import knuddels_k from "../../assets/knuddels_k.jpeg";
 import knuddels_character from "../../assets/knuddels_character.png";
 import knuddels_logo_font from "../../assets/knuddels_logo_font.png";
@@ -53,32 +53,36 @@ const DivCenterer: React.FC = () => {
   };
 
   return (
-    <div className="div-centerer">
-      <Gallery
-        images={images}
-        onSelect={setSelectedImage}
-        selectedImage={selectedImage}
-      />
+    <div className={styles.div_centerer_container}>
+      <div className={styles.div_centerer}>
+        <Gallery
+          images={images}
+          onSelect={setSelectedImage}
+          selectedImage={selectedImage}
+        />
 
-      <CenteringCanvas
-        selectedImage={selectedImage}
-        positionStyle={positionStyle}
-        onCenter={onCenter}
-        isCentered={isCentered}
-      />
+        <CenteringCanvas
+          selectedImage={selectedImage}
+          positionStyle={positionStyle}
+          onCenter={onCenter}
+          isCentered={isCentered}
+        />
 
-      <button onClick={handleCenter}>{isCentered ? "Reset" : "Center"}</button>
-      <button onClick={() => setShowCode(!showCode)}>Show Code</button>
+        <button onClick={handleCenter}>
+          {isCentered ? "Reset" : "Center"}
+        </button>
+        <button onClick={() => setShowCode(!showCode)}>Show Code</button>
 
-      {showCode && (
-        <pre className="code">
-          {`
+        {showCode && (
+          <pre className="code">
+            {`
           <div style="${JSON.stringify(positionStyle)}">
             <img src="${selectedImage}" style="width: 200px; height: auto;" />
           </div>
         `}
-        </pre>
-      )}
+          </pre>
+        )}
+      </div>
     </div>
   );
 };

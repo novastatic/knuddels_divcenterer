@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { centerDiv } from "../../../utils/divCenterer";
+import styles from "./CenteringCanvas.module.css";
 
 interface CenteringCanvasProps {
   selectedImage: string;
@@ -31,15 +32,7 @@ const CenteringCanvas: React.FC<CenteringCanvasProps> = ({
   }, [selectedImage, onCenter, isCentered]);
 
   return (
-    <div
-      className="canvas"
-      style={{
-        position: "relative",
-        height: "500px",
-        width: "500px",
-        border: "1px solid black",
-      }}
-    >
+    <div className={styles.canvas}>
       <div ref={imgRef} style={positionStyle}>
         <img
           src={selectedImage}
