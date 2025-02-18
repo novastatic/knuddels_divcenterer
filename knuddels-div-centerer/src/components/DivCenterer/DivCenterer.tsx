@@ -8,7 +8,7 @@ import Gallery from "../UI/Gallery/Gallery";
 
 const images = [knuddels_k, knuddels_character, knuddels_logo_font];
 
-// Create a random position for the selected element on the canvas
+// Function to get random position style for the image
 const getRandomPositionStyle = (): React.CSSProperties => {
   const positions = ["top", "bottom", "left", "right"];
   const randomPosition =
@@ -22,18 +22,29 @@ const getRandomPositionStyle = (): React.CSSProperties => {
 const DivCenterer: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const [positionStyle, setPositionStyle] = useState(getRandomPositionStyle());
+  const [previousStyle, setPreviousStyle] =
+    useState<React.CSSProperties>(positionStyle);
   const [showCode, setShowCode] = useState(false);
   const [isCentered, setIsCentered] = useState(false);
 
   // Effect to reset position style when a new image is selected
   useEffect(() => {
-    setPositionStyle(getRandomPositionStyle());
+    const newStyle = getRandomPositionStyle();
+    setPositionStyle(newStyle);
+    setPreviousStyle(newStyle);
     setIsCentered(false);
   }, [selectedImage]);
 
   // Function to toggle centering state
   const handleCenter = () => {
-    setIsCentered(!isCentered);
+    if (isCentered) {
+      const newStyle =
+        Math.random() > 0.5 ? previousStyle : getRandomPositionStyle();
+      setPositionStyle(newStyle);
+      setIsCentered(false);
+    } else {
+      setIsCentered(true);
+    }
   };
 
   // Callback function to update centering state
@@ -62,10 +73,10 @@ const DivCenterer: React.FC = () => {
       {showCode && (
         <pre className="code">
           {`
-            <div style="${JSON.stringify(positionStyle)}">
-              <img src="${selectedImage}" style="width: 200px; height: auto;" />
-            </div>
-          `}
+          <div style="${JSON.stringify(positionStyle)}">
+            <img src="${selectedImage}" style="width: 200px; height: auto;" />
+          </div>
+        `}
         </pre>
       )}
     </div>
