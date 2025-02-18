@@ -1,10 +1,11 @@
 import React from "react";
 import DivCenterer from "./components/DivCenterer/DivCenterer";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
     <div>
-      <h1>Div Centerer</h1>
+      <h1>div centerer</h1>
       <DivCenterer />
     </div>
   );
