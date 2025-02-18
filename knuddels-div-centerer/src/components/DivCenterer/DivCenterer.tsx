@@ -4,6 +4,7 @@ import knuddels_k from "../../assets/knuddels_k.jpeg";
 import knuddels_character from "../../assets/knuddels_character.png";
 import knuddels_logo_font from "../../assets/knuddels_logo_font.png";
 import CenteringCanvas from "../UI/CenteringCanvas/CenteringCanvas";
+import Gallery from "../UI/Gallery/Gallery";
 
 const images = [knuddels_k, knuddels_character, knuddels_logo_font];
 
@@ -42,39 +43,29 @@ const DivCenterer: React.FC = () => {
 
   return (
     <div className="div-centerer">
-      <div className="gallery">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Gallery Image ${index + 1}`}
-            onClick={() => setSelectedImage(image)}
-            style={{
-              cursor: "pointer",
-              width: "100px",
-              height: "auto",
-              margin: "5px",
-            }}
-          />
-        ))}
-      </div>
+      <Gallery
+        images={images}
+        onSelect={setSelectedImage}
+        selectedImage={selectedImage}
+      />
+
       <CenteringCanvas
         selectedImage={selectedImage}
         positionStyle={positionStyle}
         onCenter={onCenter}
         isCentered={isCentered}
       />
-      <button onClick={handleCenter}>
-        {isCentered ? "Zurücksetzen" : "Zentrieren"}
-      </button>
-      <button onClick={() => setShowCode(!showCode)}>Code anzeigen</button>
+
+      <button onClick={handleCenter}>{isCentered ? "Reset" : "Center"}</button>
+      <button onClick={() => setShowCode(!showCode)}>Show Code</button>
+
       {showCode && (
         <pre className="code">
           {`
-              <div style="${JSON.stringify(positionStyle)}">
-                <img src="${selectedImage}" style="width: 200px; height: auto;" />
-              </div>
-            `}
+            <div style="${JSON.stringify(positionStyle)}">
+              <img src="${selectedImage}" style="width: 200px; height: auto;" />
+            </div>
+          `}
         </pre>
       )}
     </div>
