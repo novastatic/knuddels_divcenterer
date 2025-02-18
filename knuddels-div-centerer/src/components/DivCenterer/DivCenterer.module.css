@@ -1,0 +1,25 @@
+.div-centerer .gallery {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.div-centerer .canvas {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.div-centerer button {
+  display: block;
+  margin: 10px auto;
+}
+
+.div-centerer .code {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-family: monospace;
+}
