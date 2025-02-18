@@ -1,0 +1,15 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  margin: 0;
+  font-family: monospace;
+  background-color: #010101;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

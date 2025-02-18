@@ -1,0 +1,7 @@
+.canvas {
+  border: 1px solid lightpink;
+  position: relative;
+  height: 400px;
+  width: 400px;
+  margin-bottom: 20px;
+}
