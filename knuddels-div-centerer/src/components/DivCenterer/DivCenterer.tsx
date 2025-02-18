@@ -74,7 +74,7 @@ const DivCenterer: React.FC = () => {
         <button onClick={() => setShowCode(!showCode)}>Show Code</button>
 
         {showCode && (
-          <pre className="code">
+          <pre className={styles.code}>
             {`
           <div style="${JSON.stringify(positionStyle)}">
             <img src="${selectedImage}" style="width: 200px; height: auto;" />
