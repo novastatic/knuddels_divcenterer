@@ -69,9 +69,9 @@ const DivCenterer: React.FC = () => {
         />
 
         <button onClick={handleCenter}>
-          {isCentered ? "Reset" : "Center"}
+          {isCentered ? "reset" : "center"}
         </button>
-        <button onClick={() => setShowCode(!showCode)}>Show Code</button>
+        <button onClick={() => setShowCode(!showCode)}>show code</button>
 
         {showCode && (
           <pre className={styles.code}>
